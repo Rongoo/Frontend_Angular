@@ -1,0 +1,12 @@
+<div class="alert alert-waring" *ngIf="message">{{message}}</div>
+<form (ngSubmit)="!todoForm.invalid && saveTodo()" class="container" #todoForm="ngForm">
+    <fieldset class="from-group">
+        <label>Describtion</label>
+        <input [(ngModel)]="name" class="form-control" name="describtion" required="required">
+    </fieldset>
+    <fieldset class="from-group">
+        <label>Date</label>
+        <input type="date" class="form-control" [ngModel]="date | date:'yyyy-MM-dd'" (ngModelChange)="date=$event" name="targetDate">
+    </fieldset>
+    <button type="submit" class="btn btn-success">Update</button>
+</form>
